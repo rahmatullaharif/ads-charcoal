@@ -1,0 +1,284 @@
+/* public/css/style.css */
+
+/* --- 1. Root & Base --- */
+:root { 
+    --primary-orange: #ef6445; 
+    --navy-blue: #1a2b40;
+    --footer-navy: #0b1d33;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 80px; 
+}
+
+body { 
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif; 
+    color: #444; 
+    line-height: 1.6;
+}
+
+/* --- 2. Navbar --- */
+.navbar { 
+    padding: 15px 50px; 
+    background-color: white !important; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-link { 
+    color: #333 !important; 
+    margin: 0 10px; 
+    font-weight: 500; 
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary-orange) !important;
+}
+
+.btn-get-quote { 
+    background-color: var(--primary-orange); 
+    color: white !important; 
+    border-radius: 5px; 
+    padding: 8px 25px; 
+    border: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-get-quote:hover {
+    background-color: #d85438;
+    transform: translateY(-2px);
+}
+
+/* --- 3. Hero / Carousel Section --- */
+#hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-img { 
+    height: 90vh; 
+    object-fit: cover; 
+    filter: brightness(0.5); 
+}
+
+.carousel-caption { 
+    bottom: 30% !important; 
+    left: 8% !important; 
+    max-width: 700px; 
+    z-index: 10; /* Menaruh teks di depan overlay gambar */
+}
+
+.carousel-caption h1 { 
+    font-size: 3.8rem; 
+    font-weight: 800; 
+    line-height: 1.1; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Tombol Carousel */
+.btn-contact { 
+    background-color: var(--primary-orange); 
+    border: 2px solid var(--primary-orange); 
+    padding: 14px 35px; 
+    font-weight: bold; 
+    color: white !important; 
+    border-radius: 5px; 
+    margin-right: 15px; 
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    position: relative;
+    z-index: 20; /* AGAR BISA DIKLIK: harus lebih tinggi dari caption */
+}
+
+.btn-contact:hover {
+    background-color: transparent;
+    color: white !important;
+    border-color: white;
+}
+
+.btn-products { 
+    background-color: transparent; 
+    border: 2px solid white; 
+    padding: 14px 35px; 
+    font-weight: bold; 
+    color: white !important; 
+    border-radius: 5px; 
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    position: relative;
+    z-index: 20;
+}
+
+.btn-products:hover {
+    background-color: white;
+    color: var(--navy-blue) !important;
+}
+
+/* --- 4. Section Titles --- */
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--navy-blue);
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    color: var(--primary-orange);
+    display: inline-block;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background-color: var(--primary-orange);
+}
+
+/* --- 5. About & Feature Cards --- */
+.feature-card {
+    background: #fff;
+    padding: 40px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    height: 100%;
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(239, 100, 69, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.feature-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: #fff2ef !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    transition: var(--transition);
+}
+
+.feature-icon-wrapper i {
+    font-size: 32px !important;
+    color: var(--primary-orange) !important;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background-color: var(--primary-orange) !important;
+    transform: rotateY(360deg);
+}
+
+.feature-card:hover .feature-icon-wrapper i {
+    color: #ffffff !important;
+}
+
+/* --- 6. Gallery & Products --- */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- 7. Contact Section --- */
+.form-control {
+    padding: 12px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 4px rgba(239, 100, 69, 0.15);
+}
+
+#contact .feature-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+#contact .feature-icon-wrapper i {
+    font-size: 20px !important;
+}
+
+/* --- 8. Footer --- */
+.footer-section {
+    background-color: var(--footer-navy);
+}
+
+.footer-links a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--primary-orange);
+    transform: translateX(8px);
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background: var(--primary-orange);
+    transform: translateY(-5px);
+}
+
+/* Styling logo di footer agar rounded dan rapi */
+.footer-logo img {
+    height: 60px;
+    border-radius: 15px; /* Mengatur kelengkungan sudut */
+    background-color: white; /* Memberi dasar putih jika gambar aslinya transparan */
+    padding: 5px; /* Memberi jarak antara logo dengan tepi lengkungan */
+    object-fit: contain;
+}

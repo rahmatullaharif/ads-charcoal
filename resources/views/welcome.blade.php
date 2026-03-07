@@ -295,24 +295,24 @@
                 <div class="col-lg-6">
                     <div class="bg-white p-4 p-md-5 rounded-custom shadow-sm h-100">
                         <h4 class="fw-bold mb-4">Send us a Message</h4>
-                        <form>
+                        <form id="whatsappForm">
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Your Name *</label>
-                                <input type="text" class="form-control" placeholder="John Doe">
+                                <input type="text" id="name" class="form-control" placeholder="John Doe" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Email Address *</label>
-                                <input type="email" class="form-control" placeholder="john@example.com">
+                                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Phone Number *</label>
-                                <input type="text" class="form-control" placeholder="+971 xxx xxxx xxxx">
+                                <input type="text" id="phone" class="form-control" placeholder="+971 xxx xxxx xxxx" required>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label small fw-bold">Your Message *</label>
-                                <textarea class="form-control" rows="4" placeholder="Tell us about your requirements..."></textarea>
+                                <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your requirements..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-contact w-100 m-0">
+                            <button type="button" onclick="sendToWhatsApp()" class="btn btn-contact w-100 m-0">
                                 <i class="bi bi-send-fill me-2"></i> Send Message via WhatsApp
                             </button>
                         </form>
@@ -426,5 +426,27 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Nomor WhatsApp Anda (Gunakan kode negara, tanpa tanda + atau spasi)
+            const whatsappNumber = "628973377577"; 
+
+            const text = `Halo ADS Charcoal,%0A%0A` +
+                        `*Nama:* ${name}%0A` +
+                        `*Email:* ${email}%0A` +
+                        `*Phone:* ${phone}%0A` +
+                        `*Pesan:* ${message}`;
+
+            const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+            
+            // Buka tab baru
+            window.open(url, '_blank').focus();
+        }
+        </script>
 </body>
 </html>

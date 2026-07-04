@@ -1,0 +1,1053 @@
+/*============================================================================
+  1. RESET & BASE STYLES
+============================================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    background-color: #fdfdfd;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Global Section Title */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ff6a00; /* Warna Oranye Aksen */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #ff6a00;
+}
+
+/* Components: Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-orange {
+    background-color: #ff6a00;
+    color: #ffffff;
+    border: 2px solid #ff6a00;
+}
+
+.btn-orange:hover {
+    background-color: #e05d00;
+    border-color: #e05d00;
+}
+
+.btn-white {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-white:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/*============================================================================
+  2. HEADER & NAVIGATION (Updated for Quote Button & Logo Text)
+============================================================================*/
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+/* Flexbox untuk Logo + Deskripsi PT */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 46px;
+    width: auto; 
+    display: inline-block;
+
+    filter: contrast(200%) multiply; 
+    mix-blend-mode: color-dodge;
+    
+    filter: drop-shadow(1px 1px 0px #ffffff) 
+            drop-shadow(-1px -1px 0px #ffffff) 
+            drop-shadow(1px -1px 0px #ffffff) 
+            drop-shadow(-1px 1px 0px #ffffff);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.company-subtitle {
+    color: #a0a0a0;
+    font-size: 11px;
+}
+
+.navbar nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar nav ul li a {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active {
+    color: #ff6a00;
+}
+
+.navbar nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6a00;
+}
+
+/* Tombol Get Quote Pill Style */
+.btn-quote {
+    background-color: #ff5100;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(255, 81, 0, 0.3);
+}
+
+.btn-quote:hover {
+    background-color: #e04700;
+    transform: translateY(-1px);
+}
+
+/*============================================================================
+  3. HERO SECTION (Updated to Match Image Slider & Features Concept)
+============================================================================*/
+#hero {
+    position: relative;
+    height: 112vh;
+    background: none; /* Background dialihkan ke element khusus di bawah */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding-top: 80px;
+}
+
+.hero-slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    z-index: -2;
+    transition: background-image 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.4) 100%);
+    z-index: -1;
+}
+
+/* Slider Arrows Layout */
+.slider-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: #ff5100;
+    border-color: #ff5100;
+}
+
+.prev-arrow { left: 40px; }
+.next-arrow { right: 40px; }
+
+/* Hero Typography Content */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 680px;
+    margin-left: 10%;
+    padding: 0 20px 140px 20px; /* Ruang bawah dialokasikan untuk info bar */
+}
+
+.welcome-tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.welcome-tag::before, 
+.welcome-tag::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background-color: #ff5100;
+    display: inline-block;
+}
+
+.hero-content h1 {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.manufacturer-text {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.cursive-text {
+    font-family: 'Caveat', cursive;
+    color: #ff6a00;
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.hero-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #cccccc;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-orange-filled {
+    background-color: #ff5100;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.btn-orange-filled:hover { 
+    background-color: #e04700; 
+}
+
+.btn-outline-white {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-outline-white:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+/* Floating Bottom Features Bar (Glassmorphism Effect) */
+.hero-features-bar {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.features-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 15, 15, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 35px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.icon-green {
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+}
+
+.icon-orange {
+    border: 1px solid #ff6a00;
+    color: #ff6a00;
+}
+
+.feature-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-info strong {
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.feature-info span {
+    font-size: 11px;
+    color: #b0b0b0;
+}
+
+/* Dynamic Wave Shape Divider */
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 55px;
+}
+
+.wave-divider .shape-fill {
+    fill: #ffffff; /* Preserving contrast transition into About section */
+}
+
+/* Scroll Double Arrow Down */
+.scroll-down {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 20px;
+    animation: bounceEffect 2.5s infinite;
+    z-index: 6;
+}
+
+@keyframes bounceEffect {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -8px); }
+    60% { transform: translate(-50%, -4px); }
+}
+
+/*============================================================================
+  4. ABOUT SECTION (Polished & Premium)
+============================================================================*/
+#about {
+    padding: 120px 0; /* Memberi ruang bernapas lebih lega dari hero section */
+    background-color: #ffffff;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Mempercantik Frame Gambar */
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; /* Memastikan gambar tidak gepeng */
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    background-color: #eaeaea; /* Warna placeholder jika gambar belum dimuat */
+}
+
+/* Badge Tambahan di Pojok Gambar */
+.image-experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background-color: #ff6a00;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-experience-badge strong {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.image-experience-badge span {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Tipografi & Paragraf */
+.about-text h3 {
+    font-size: 26px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+    color: #666666;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.about-text p.lead-text {
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* List Fitur Unggulan */
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 30px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 25px;
+}
+
+.feature {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Modifikasi Ikon Centang Oranye */
+.check-icon {
+    color: #ff6a00;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+/* Menyelaraskan Responsif di Layar Tablet & HP */
+@media (max-width: 992px) {
+    .image-experience-badge {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/*============================================================================
+  5. WHY CHOOSE US SECTION (Modern Style)
+============================================================================*/
+#why {
+    padding: 120px 0;
+    background-color: #fcfcfc;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.why-card {
+    background-color: #ffffff;
+    padding: 45px 35px;
+    border-radius: 12px;
+    border-bottom: 3px solid transparent;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    /* MODIFIKASI DISINI: Mengubah orientasi flex & teks ke tengah */
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Memposisikan icon, h3, dan p ke tengah box */
+    text-align: center;       /* Membuat baris teks h3 & p rata tengah */
+}
+
+/* Styling Wadah Ikon */
+.why-icon {
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255, 106, 0, 0.08);
+    color: #ff6a00;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    transition: all 0.3s ease;
+    
+    /* Tambahan opsional untuk memastikan margin kiri-kanan seimbang */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.why-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.why-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.why-card p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* --- EFEK HOVER SAKTI --- */
+.why-card:hover {
+    transform: translateY(-8px);
+    border-bottom-color: #ff6a00;
+    box-shadow: 0 20px 40px rgba(255, 106, 0, 0.08); /* Bayangan soft oranye */
+}
+
+/* Saat kartu di-hover, warna ikon otomatis berbalik mendominasi */
+.why-card:hover .why-icon {
+    background-color: #ff6a00;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/*============================================================================
+   6. PRODUCTS SECTION
+============================================================================*/
+#products {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.product-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.product-content p {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.btn-product-inquiry {
+    display: block;
+    width: 100%;
+    background-color: #ff6a00;
+    color: #ffffff !important;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(255, 106, 0, 0.15);
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.btn-product-inquiry:hover {
+    background-color: #e05d00;
+    box-shadow: 0 6px 12px rgba(255, 106, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/*============================================================================
+  7. EXPORT MARKET SECTION
+============================================================================*/
+#market {
+    padding: 80px 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+#market .section-title h2 {
+    color: #ffffff;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.market-grid div {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.market-grid div:hover {
+    background-color: #ff6a00;
+    border-color: #ff6a00;
+    transform: scale(1.05);
+}
+
+.market-flag {
+    width: 28px !important; /* Ukuran lebar bendera */
+    height: auto !important;
+    border-radius: 3px; /* Sudut bendera agak membulat sedikit biar modern */
+    display: inline-block !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/*============================================================================
+  8. GALLERY SECTION
+============================================================================*/
+#gallery {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/*============================================================================
+  9. CONTACT SECTION
+============================================================================*/
+#contact {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 25px;
+    color: #555555;
+}
+
+.contact-info strong {
+    color: #1a1a1a;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info .btn {
+    margin-top: 10px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/*============================================================================
+  10. FOOTER SECTION
+============================================================================*/
+footer {
+    background-color: #111111;
+    color: #b0b0b0;
+    padding: 60px 0 30px 0;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+footer ul li {
+    margin-bottom: 12px;
+}
+
+footer ul li a:hover {
+    color: #ff6a00;
+}
+
+footer hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 25px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #666666;
+}
+
+/*============================================================================
+  11. FLOATING WHATSAPP BUTTON
+============================================================================*/
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.floating-wa:hover {
+    background-color: #1ebd58;
+    transform: scale(1.05);
+}
+
+/*============================================================================
+  12. RESPONSIVE MEDIA QUERIES
+============================================================================*/
+
+/* Tablet Layout (Max-width: 992px) */
+@media (max-width: 992px) {
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .market-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .hero-content {
+        margin-left: 5%;
+        padding-bottom: 220px;
+    }
+    
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .slider-arrow, .nav-quote {
+        display: none;
+    }
+
+    .features-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        border-radius: 20px;
+        padding: 20px;
+    }
+}
+
+/* Mobile Layout (Max-width: 576px) */
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navbar nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #hero {
+        height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding: 40px 10px 240px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+    
+    .cursive-text {
+        font-size: 24px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .why-grid, .gallery-grid, .market-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title h2 {
+        font-size: 26px;
+    }
+    
+    .floating-wa {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 16px;
+    }
+}
